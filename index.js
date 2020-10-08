@@ -40,6 +40,13 @@ app.get('/registration', (req, res) =>{
 
 })
 
+app.get('/volunteerList', (req, res) => {
+    registration.find({})
+    .toArray( (err, documents) => {
+        res.send(documents);
+    })
+})
+
 
 });
 
