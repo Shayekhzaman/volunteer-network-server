@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors= require('cors');
 const MongoClient = require('mongodb').MongoClient;
 require ('dotenv').config();
+const ObjectId=require('mongodb').ObjectId;
 
 const port=3000;
 const app = express();
@@ -47,6 +48,13 @@ app.get('/volunteerList', (req, res) => {
     })
 })
 
+app.delete('/delete/:id', (req, res) =>{
+    registration.deleteOne({ _id: ObjectId (req.params.id)})
+    .then((result) =>{
+        console.log(result);
+    })
+})
+ 
 
 });
 
